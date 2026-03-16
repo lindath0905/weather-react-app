@@ -3,6 +3,7 @@ import axios from "axios";
 import "./styles.css";
 
 export default function WeatherSearchEngine() {
+  const [cityName, setCityName] = useState("");
   const [temperature, setTemperature] = useState("");
   const [description, setDescription] = useState("");
   const [humidity, setHumidity] = useState("");
@@ -22,6 +23,7 @@ export default function WeatherSearchEngine() {
   }
 
   function showWeather(response) {
+    setCityName(response.data.name);
     setTemperature(Math.round(response.data.main.temp));
     setDescription(response.data.weather[0].description);
     setHumidity(response.data.main.humidity);
@@ -42,7 +44,7 @@ export default function WeatherSearchEngine() {
 
       {temperature !== "" && (
         <ul>
-          <li className="city">{city}</li>
+          <li className="city">{cityName}</li>
           <li>Temperature: {temperature}°C</li>
           <li>{description}</li>
           <li>Humidity: {humidity}%</li>
