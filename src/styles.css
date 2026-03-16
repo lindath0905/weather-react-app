@@ -1,0 +1,14 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  text-align: left;
+}
+
+.city {
+  font-size: 25px;
+  
+}
